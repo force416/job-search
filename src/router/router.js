@@ -27,7 +27,7 @@ const routes = [
 ]
 
 var vueRouter = new VueRouter({
-    base: 'vue-practice',
+    base: 'job-search',
     // mode: 'history',
     routes: routes
 });
