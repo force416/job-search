@@ -42,7 +42,7 @@ export default {
         "footer-component": footerComponent
     },
     methods: {
-        handleSelect(key, keyPath) {
+        handleSelect: function (key, keyPath) {
             if (key === '1') {
                 router.push({ path: '/' });
             }
