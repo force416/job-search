@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    publicPath: process.env.NODE_ENV === 'production' ? '/job-search/dist/' : '/dist/',
     filename: 'bundle.js'
   },
   module: {

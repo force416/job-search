@@ -1,6 +1,6 @@
 <template>
     <div>
-        <waterfall :line="line" :line-gap="200" :min-line-gap="180" :max-line-gap="220" :watch="items" @reflowed="reflowed" ref="waterfall">
+        <waterfall :line-gap="200" :min-line-gap="180" :max-line-gap="220" :watch="items" @reflowed="reflowed" ref="waterfall">
             <waterfall-slot v-for="(item, index) in items" :width="item.width" :height="item.height" :order="index" :key="item.J">
                 <div class="item" :style="item.style" :index="item.index">
                     <el-tag type="success">{{ item.JOB }}</el-tag>
@@ -21,7 +21,7 @@ import config from '../config/config.js'
 export default {
     data: function () {
         return {
-            grow: [3, 2, 1, 2],
+            line:'center',
             count: 0,
             items: [],
             isLoadData: false,
