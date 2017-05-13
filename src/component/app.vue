@@ -43,7 +43,7 @@ export default {
     methods: {
         handleSelect: function (key, keyPath) {
             if (key === '1') {
-                router.push({ path: 'job-wall' });
+                router.push({ name: 'job-wall' });
             }
             else if (key === '2') {
                 router.push({ name: 'dashboard', params: { userId: 123 } });
