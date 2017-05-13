@@ -24,6 +24,10 @@
                         <el-tag>地點</el-tag>
                         {{ item.JOB_ADDR_NO_DESCRIPT }}
                     </div>
+                    <div>
+                        <el-tag>更新日期</el-tag>
+                        {{ formateDate(item.APPEAR_DATE) }}
+                    </div>
                     <p>
                         <el-button @click="link104Page(item.J)" type="primary" icon="search">詳細資訊</el-button>
                     </p>
@@ -65,13 +69,14 @@ export default {
                 // cat: 2007001006, //職務類別
                 role: '1,4',     //全職
                 fmt: 8,          //輸出格式 JSON
-                cols: 'J,JOB,NAME,ADDRESS,DESCRIPTION,JOB_ADDR_NO_DESCRIPT,SAL_MONTH_LOW,SAL_MONTH_HIGH', //輸出欄位
+                cols: 'J,JOB,NAME,ADDRESS,DESCRIPTION,JOB_ADDR_NO_DESCRIPT,SAL_MONTH_LOW,SAL_MONTH_HIGH,APPEAR_DATE', //輸出欄位
                 page: page,      //頁數
                 totalPage: 0,     //總頁數
                 pgsz: pgsz,      //每頁筆數
                 kws: 'java',     //關鍵字
                 kwop: 2,        //關鍵字查詢範圍
-                area: 6001001000 //地點 = 台北市全部
+                area: 6001001000,//地點 = 台北市全部
+                order: 2         //排序
             };
             const url = 'http://www.104.com.tw/i/apis/jobsearch.cfm';
 
@@ -131,6 +136,13 @@ export default {
         },
         link104Page: function (id) {
             window.open(config.JOB_PAGE_URL + '?j=' + id);
+        },
+        formateDate: function (date) {
+            date = String(date);
+            const year = date.substring(0, 4);
+            const month = date.substring(4, 6);
+            const day = date.substring(6, 8);
+            return year + '-' + month + '-' + day;
         }
     },
     created: function () {
