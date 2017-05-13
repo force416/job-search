@@ -2,7 +2,7 @@
     <div v-loading.body="isLoadData">
         <el-row :gutter="20">
             <el-col :span="8" :offset="0">
-                <div class="el-icon-arrow-down"> 共 {{ totalCount }} 筆資料</div>
+                {{ showCountMsg() }}
             </el-col>
         </el-row>
         <waterfall :line="line" :line-gap="200" :min-line-gap="180" :max-line-gap="220" :watch="items" @reflowed="reflowed" ref="waterfall">
@@ -29,7 +29,8 @@
                         {{ formateDate(item.APPEAR_DATE) }}
                     </div>
                     <p>
-                        <el-button @click="link104Page(item.J)" type="primary" icon="search">詳細資訊</el-button>
+                        <el-button @click="link104Page(item.J)" type="primary" icon="search">104 page</el-button>
+                        <el-button @click="showDetail(item.DESCRIPTION)" type="primary" icon="information">工作內容</el-button>
                     </p>
                 </div>
             </waterfall-slot>
@@ -69,7 +70,7 @@ export default {
                 // cat: 2007001006, //職務類別
                 role: '1,4',     //全職
                 fmt: 8,          //輸出格式 JSON
-                cols: 'J,JOB,NAME,ADDRESS,DESCRIPTION,JOB_ADDR_NO_DESCRIPT,SAL_MONTH_LOW,SAL_MONTH_HIGH,APPEAR_DATE', //輸出欄位
+                cols: 'J,JOB,NAME,ADDRESS,DESCRIPTION,JOB_ADDR_NO_DESCRIPT,SAL_MONTH_LOW,SAL_MONTH_HIGH,APPEAR_DATE,DESCRIPTION', //輸出欄位
                 page: page,      //頁數
                 totalPage: 0,     //總頁數
                 pgsz: pgsz,      //每頁筆數
@@ -143,6 +144,20 @@ export default {
             const month = date.substring(4, 6);
             const day = date.substring(6, 8);
             return year + '-' + month + '-' + day;
+        },
+        showCountMsg: function () {
+            return '共 ' + this.totalCount + ' 筆資料';
+        },
+        showDetail: function (detail) {
+
+            // detail = detail.replace(/\n/g, '<br />');
+
+            // const h = this.$createElement;
+            this.$msgbox({
+                title: '工作內容',
+                message: detail,
+                confirmButtonText: '確定'
+            });
         }
     },
     created: function () {
