@@ -15,9 +15,8 @@
 <template>
     <div>
         <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-            <el-menu-item index="1">首頁</el-menu-item>
+            <el-menu-item index="1">Job Wall</el-menu-item>
             <!--<el-menu-item index="2">Dashboard</el-menu-item>-->
-            <el-menu-item index="3">Job Wall</el-menu-item>
         </el-menu>
         <router-view></router-view>
     </div>
@@ -44,7 +43,7 @@ export default {
     methods: {
         handleSelect: function (key, keyPath) {
             if (key === '1') {
-                router.push({ path: '/' });
+                router.push({ path: 'job-wall' });
             }
             else if (key === '2') {
                 router.push({ name: 'dashboard', params: { userId: 123 } });

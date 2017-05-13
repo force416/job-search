@@ -1,11 +1,11 @@
-var path = require('path')
-var webpack = require('webpack')
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: process.env.NODE_ENV === 'production' ? '/job-search/dist/' : '/dist/',
+    publicPath: process.env.NODE_ENV === 'production' ? '/job-search/dist/' : '/dist/', //判斷prod or dev path
     filename: 'bundle.js'
   },
   module: {
