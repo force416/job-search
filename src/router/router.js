@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import DashboardComponent from '../component/dashboardComponent.vue'
 import ProfileComponent from '../component/profileComponent.vue'
 import JobWallComponent from '../component/jobWallComponent.vue'
+import CountComponent from '../component/countComponent.vue'
 import config from '../config/config.js';
 
 Vue.use(VueRouter)
@@ -10,7 +11,8 @@ Vue.use(VueRouter)
 const routes = [
     { path: '/dashboard/:userId', name: 'dashboard', component: DashboardComponent },
     { path: '/profile', name: 'profile', component: ProfileComponent },
-    { path: '/', name: 'job-wall', component: JobWallComponent }
+    { path: '/', name: 'job-wall', component: JobWallComponent },
+    { path: '/count', name: 'count', component: CountComponent }
 ]
 
 var vueRouter = new VueRouter({
