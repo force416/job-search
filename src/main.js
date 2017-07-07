@@ -6,26 +6,16 @@ import 'element-ui/lib/theme-default/index.css';
 import router from "./router/router.js";
 import VueResource from 'vue-resource';
 import AppComponent from './component/app.vue';
+import store from './store/index.js';
 
-Vue.use(Vuex);
 Vue.use(VueResource);
 Vue.use(ElementUI);
-
-const store = new Vuex.Store({
-    state: {
-        count: 0
-    },
-    mutations: {
-        increment: state => state.count++,
-        decrement: state => state.count--
-    }
-})
 
 const app = new Vue({
     el: "#app",
     template: '<app/>',
-    store,
-    router,
+    store : store,
+    router : router,
     components: {
         "app": AppComponent
     }

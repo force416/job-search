@@ -9,18 +9,21 @@
 </template>
 
 <script>
+
 export default {
     computed: {
         count() {
-            return this.$store.state.count
+            return this.$store.state.countStore.count;
         }
     },
     methods: {
         increment() {
-            this.$store.commit('increment')
+            this.$store.dispatch({ type: 'increment', amount: 1 }).then(() => {
+                console.log("add complete!");
+            });
         },
         decrement() {
-            this.$store.commit('decrement')
+            this.$store.commit('decrement');
         }
     }
 }
