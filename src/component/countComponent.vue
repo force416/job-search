@@ -18,12 +18,12 @@ export default {
     },
     methods: {
         increment() {
-            this.$store.dispatch({ type: 'increment', amount: 1 }).then(() => {
+            this.$store.dispatch({ type: 'countStore/increment', amount: 1 }).then(() => {
                 console.log("add complete!");
             });
         },
         decrement() {
-            this.$store.commit('decrement');
+            this.$store.commit('countStore/decrement');
         }
     }
 }

@@ -4,6 +4,7 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 const countStore = {
+    namespaced: true,
     state: {
         count: 0
     },
